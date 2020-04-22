@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+        <title>Table of words</title>    
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <!-- End Bootstrap CDN -->
+        <!-- JQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- End JQuery CDN -->
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="sight.css">
+
+    </head>
+    <body>
+        <!-- Header -->
+        <div class="container-fluid p-3">                  
+            <div class="row">                
+                <div class="col text-center p-2" style="background-color: rgb(190, 247, 173);border-style: groove;">
+                    <h2 style="color:chocolate;">Practice sight words and sentences!</h2>
+                    <h5>Click mic, say word or sentence from table</h5>                
+                </div>
+            </div>
+        </div>
+        <!-- Middle section of the page -->
+        <div class="container p-3">
+        <div class="row">
+        <!-- Left 1-quarter section of the app -->
+            <div class="col-3 border border-2">
+                <br>
+                <h5 class="bg-dark text-white p-3">To keep in mind...</h5>
+                <br>
+                <h6>This sight words app is for K-2 students who like to practice reading words/sentences</h6>
+                <br>
+                <h6>The primary feature is <span style="color:darkcyan"><i>speech-to-text</i></span>: As students speak off of the table the voice is 
+                    converted to text and compared, if there is a match points are scored </h6>
+                <br>
+                <h6>This app works only on PC and Android's Chrome / Mozilla browsers</h6>
+                <br>
+                <h6>Please you use https:// - else mic will not work</h6>
+                <br>
+                <h6>The webspeech API is good but is not perfect, 
+                    some utterances may not be accurately captured, after a few tries the student will figure out the pacing needed</h6> 
+            </div>
+        <!-- Right 3-quarters section of the app -->
+            <div class="col-9">
+       
+        <!-- Mic and points button -->
+                <div class="row px-4 mx-auto sticky-top ">
+                    <div class="col"></div>
+                    <div class="col">
+                        <img class="mx-auto" src="mic4.jpg" id='sightbutton' width='120' height='120' />
+                    </div>
+                    <div class="col"></div>
+                    <div class="col">
+                        <p id="points" class="text-center mt-5 card card-header bg-lg bg-success text-white" style="font-size: 1.25rem;"> SCORE </p>
+                    </div>
+                    
+                </div>
+        <!-- Spoken word display -->
+                <div class="row px-4">
+                    <div class="col text-left p-4">
+                        <p class="output" style="color:rgb(39, 2, 39)"><em>[Spoken word will be shown here]</em></p>
+                    </div>
+                </div>
+        <!-- Word table -->
+                <div class="row mx-auto">
+                    <div class="col">
+                        <table id="table" class="table table-bordered text-center">
+                            <tr>
+                                <td>how are you</td>
+                                <td>walk with me</td>
+                                <td>i like animals</td>
+                            </tr>
+                            <tr>
+                                <td>new</td>
+                                <td>our</td>
+                                <td>who</td>
+                            </tr>
+                            <tr>
+                                <td>was</td>
+                                <td>said</td>
+                                <td>end</td>
+                            </tr>
+                            <tr>
+                                <td>away</td>
+                                <td>each</td>
+                                <td>word</td>
+                            </tr>
+                            <tr>
+                                <td>when</td>
+                                <td>what</td>
+                                <td>why</td>
+                            </tr>
+                            <tr>
+                                <td>where</td>
+                                <td>funny</td>
+                                <td>little</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+        <br>
+         <!--Starting words and sentences  -->
+                <div class="row  mx-auto mb-5">
+                <div class="col"> <input class="wordInput input-group" type="text" name="word1" id="word1" /></div>              
+                <div class="col"> <input class="wordInput input-group" type="text" name="word2" id="word2" /> </div>              
+                    <div class="col"> <input class="wordInput input-group" type="text" name="word3" id="word3" /> </div>
+                </div>
+
+        <!-- Add more words and sentences -->
+                <div class="row  mx-auto m-2">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary btn-block"  onclick="addRow()" id="add">
+                            Add more words or sentences 
+                        </button>
+                    </div>
+                </div>  
+         
+            
+        <!-- Delete rows -->
+            <div class="row  mx-auto m-2">
+                <div class="col">
+                    <button type="button" class="btn btn-danger btn-block"  onclick="deleteRow()" id="delete">
+                        Delete top row 
+                    </button>
+                </div>
+            </div>   
+        
+        <!-- Refresh button -->
+             <div class="row  mx-auto m-2">
+                <div class="col">
+                    <button type="button" class="btn btn-danger btn-block"  onclick="location.reload()" id="refresh">
+                        Refresh:Default table, Score reset 
+                    </button>
+                </div>
+            </div>   
+        <br>
+            </div>
+            
+        </div>   
+        </div>
+        <!-- Footer -->
+        <div class="container-fluid">
+            <div class="row" style="background-color: rgb(190, 247, 173);border-style: groove">
+                <div class="col">
+                  
+                    <p class="m-3">This app is an attempt to help my son practice sight-reading, 
+                        the hope is it benefits more students. I used 
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API">Mozilla's free Webspeech API.</a> 
+                        Any comments please message me via <a href="https://www.linkedin.com/in/karthiksuri/">LinkedIn.</a>
+                    </p> 
+                
+                    <p class="text-center pb-1">&copy 2020 Karthik Suryanarayanan. Licensed under the Apache License, Version 2.0 </p>
+                </div>
+            </div>
+        </div>
+        <script src="sight.js"></script>
+    </body>
