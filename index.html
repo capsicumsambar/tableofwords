@@ -15,7 +15,8 @@
         <!-- End Bootstrap CDN -->
         <!-- JQuery CDN -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- End JQuery CDN -->
+        <!-- Font awesome for hourglass -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="sight.css">
 
@@ -43,7 +44,7 @@
                 <h6>The primary feature is <span style="color:darkcyan"><i>speech-to-text</i></span>: As students speak off of the table the voice is 
                     converted to text and compared, if there is a match points are scored </h6>
                 <br>
-                <h6>This app works only on PC and Android's Chrome / Mozilla browsers</h6>
+                <h6>This app works only on PC and Android's Chrome browser</h6>
                 <br>
                 <h6>Please you use https:// - else mic will not work</h6>
                 <br>
@@ -59,16 +60,17 @@
                     <div class="col">
                         <img class="mx-auto" src="mic4.jpg" id='sightbutton' width='120' height='120' />
                     </div>
-                    <div class="col"></div>
+                    <div class="col" id="addtimer">
+                        <div id="timer" class="fa"></div>
+                    </div>
                     <div class="col">
                         <p id="points" class="text-center mt-5 card card-header bg-lg bg-success text-white" style="font-size: 1.25rem;"> SCORE </p>
-                    </div>
-                    
+                    </div>   
                 </div>
         <!-- Spoken word display -->
                 <div class="row px-4">
                     <div class="col text-left p-4">
-                        <p class="output" style="color:rgb(39, 2, 39)"><em>[Spoken word will be shown here]</em></p>
+                        <p class="output" style="color:rgb(39, 2, 39)"></p>
                     </div>
                 </div>
         <!-- Word table -->
