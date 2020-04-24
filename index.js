@@ -98,7 +98,7 @@ sightbutton.onclick = function() {
 var points=0; // declaring points before the recognition onresult method is fired
 //function for showing results of spoken words
 recognition.onresult = function(event) {
-  $(".col-3").hide();
+  // $(".col-3").hide();
   // coverting HTML table to JS array to check if spoken word is in the sight table box
   var sightTableArray = [];
   var x = document.getElementById("table");
