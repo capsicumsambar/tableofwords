@@ -64,7 +64,7 @@ var table = document.getElementById("table");// redeclaring as above table decla
 
 // word spoken event is fired after sightbutton is clicked
 sightbutton.onclick = function() {
-  $('#partyimg').remove();
+  // $('#partyimg').remove();
   // $("addtimer").append("<div id='timer' class='fa'></div>"); //adding timer back for second and beyond mic clicks
   recognition.start();
   // timer start/end function after mic is clicked
@@ -134,7 +134,7 @@ recognition.onresult = function(event) {
       }
     }
     $('#points').html(points);
-    $('#successimg').append("<img id='partyimg' src='animated-party-image-0033.gif'>"); 
+    $('#successimg').append("<img id='partyimg' width='120 height='120' src='animated-party-image-0033.gif'>"); 
     
 
     document.querySelector('#airhorn').play();
