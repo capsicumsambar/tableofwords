@@ -155,6 +155,8 @@ recognition.onerror = function(event) {
   diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
 
+$("#instructions").hide();
+$("#rightthreecols").toggleClass("col-12");
 $("#instructionsbutton").click(function(){
     $("#instructions").toggle();
     $("#rightthreecols").toggleClass("col-12");
