@@ -119,6 +119,11 @@ recognition.onresult = function(event) {
   //capture spoken word using webspeech API
   var wordSpoke = event.results[0][0].transcript.toLowerCase();  
   diagnostic.innerHTML = 'You spoke: ' +  '<span style="color:red">' + wordSpoke + '</span>';
+  //Below 2 lines of code to add different animals randomly for correct answers
+  var arrAnimalImg = ['lion.jpg','tiger.jpg','puma.jpg','ocelot.jpg','greywolf.jpg','cheetah.jpg',
+                        'whitetiger.jpg','leopard.jpg','rustycat.jpg','jaguar.jpg','woodpecker.jpg'];
+                        
+  var animalImg = arrAnimalImg[Math.floor(Math.random()*11)];
   if(sightTableArray.includes(wordSpoke)){
     points++;
     wordSpoke = wordSpoke.valueOf(); // not sure if valueOf is really needed
@@ -134,10 +139,7 @@ recognition.onresult = function(event) {
       }
     }
     $('#points').html(points);
-    $('#successimg').append("<img id='partyimg' width='120 height='120' src='animated-party-image-0033.gif'>"); 
-    
-
-    document.querySelector('#airhorn').play();
+    $('#successimg').append(`<img id='partyimg' width='120 height='120' src=${animalImg}>`); 
   };
   console.log(sightTableArray)
   console.log('Confidence: ' + event.results[0][0].confidence);
