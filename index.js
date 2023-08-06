@@ -120,10 +120,10 @@ recognition.onresult = function(event) {
   var wordSpoke = event.results[0][0].transcript.toLowerCase();  
   diagnostic.innerHTML = 'You spoke: ' +  '<span style="color:red">' + wordSpoke + '</span>';
   //Below 2 lines of code to add different animals randomly for correct answers
-  var arrAnimalImg = ['lion.jpg','tiger.jpg','puma.jpg','ocelot.jpg','greywolf.jpg','cheetah.jpg',
-                        'whitetiger.jpg','leopard.jpg','rustycat.jpg','jaguar.jpg','woodpecker.jpg'];
+  var arrAnimalImg = ['lion.jpg','cheetah.jpg','elsa.gif', 'encanto.gif','frozen.jpg','frozen2.jpg', 'isabella.encanto.gif',
+                        ];
                         
-  var animalImg = arrAnimalImg[Math.floor(Math.random()*11)];
+  var animalImg = arrAnimalImg[Math.floor(Math.random()*7)];
   if(sightTableArray.includes(wordSpoke)){
     points++;
     wordSpoke = wordSpoke.valueOf(); // not sure if valueOf is really needed
